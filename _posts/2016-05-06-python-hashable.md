@@ -24,5 +24,5 @@ class hashabledict(dict):
 		return hash(tuple(sorted(self.items())))
 ```
 
-参考：![](http://stackoverflow.com/questions/1306631/python-add-list-to-set)
+参考：[http://stackoverflow.com/questions/1306631/python-add-list-to-set](http://stackoverflow.com/questions/1306631/python-add-list-to-set)
 
