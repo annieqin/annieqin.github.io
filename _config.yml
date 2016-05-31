@@ -1,16 +1,12 @@
 # Site settings
-title: Ryan
+title: Annie's Blog
 header-img: img/home-bg.jpg
-email: wanglun02@gmail.com
+email: annie__qin@163.com
 description: ""
 baseurl: ""
 url: "http://annieqin.github.io"
-twitter_username: lunwang
-github_username:  aelam
-facebook_username:  com.ryan.wang
-weibo_username: chanweilun
-zhihu_username: aelam
-author: Ryan
+github_username:  annieqin
+author: AnnieQin
 
 # Build settings
 markdown: kramdown
