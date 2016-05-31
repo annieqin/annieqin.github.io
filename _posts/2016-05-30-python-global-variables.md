@@ -3,7 +3,7 @@ layout: post
 title: "Python中的全局变量"
 description:
 category:
-tags: [mysql]
+tags: [python]
 ---
 
 ### 外部的不可变数据对象
@@ -43,7 +43,6 @@ for k in range(10):
 ```
 
 * 当全局变量是可变数据对象时
-
 ```
 import threading
 import os
