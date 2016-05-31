@@ -11,15 +11,15 @@ tags: [python]
 
 * 单线程爬虫
 
-![image](/img/in-post/sin-thread)
+![image](/img/in-post/sin-thread.png)
 
 * 多线程爬虫
 
-![image](/img/in-post/multi-thread)
+![image](/img/in-post/multi-thread.png)
 
 * 多进程爬虫
 
-![image](/img/in-post/multi-process)
+![image](/img/in-post/multi-process.png)
 
 可见 单线程用时 > 多线程用时 > 多进程用时
 
