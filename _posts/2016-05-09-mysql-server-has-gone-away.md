@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'OperationalError: (2006, 'MySQL server has gone away') '
+title: "OperationalError: (2006, 'MySQL server has gone away')"
 description:
 category:
 tags: [mysql]
