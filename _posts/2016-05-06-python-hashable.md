@@ -6,7 +6,7 @@ category:
 tags: [python]
 ---
 
-字典(dictionary)的key 和 集合(set)的元素都必须是可哈希的(hashable)
+**字典(dictionary)的key** 和 **集合(set)的元素** 都必须是可哈希的(hashable)
 
 不可哈希(unhashable)的数据类型：
 
@@ -14,9 +14,7 @@ tags: [python]
 
 * set: 可用frozenset 代替
 
-* dictionary:  暂时没有较好的替代者
-
-不过可以自己写一个可哈希的字典
+* dictionary:  暂时没有较好的替代者, 不过可以自己写一个可哈希的字典, 如下：
 
 ```
 class hashabledict(dict): 
