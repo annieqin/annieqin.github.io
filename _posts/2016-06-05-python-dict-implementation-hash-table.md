@@ -55,7 +55,6 @@ index = hash(key) & mask
 #### 字典是无序的
 
 * 由于字典实际上是存储在一个hash table中的，因此，输出字典中各元素时，其顺序并不会按照元素输入的顺序，而是按照在hash table中存放的顺序。
-
 例如：
 
 ```
@@ -77,14 +76,36 @@ index = hash(key) & mask
 
 ```
 
-* 插入操作可能会使字典重排序，因此在迭代时不允许向字典插入元素。
+* 即使是两个元素完全一样的字典，由于其各个元素插入顺序额不同，其键的顺序也会不同。假设现有两个所包含元素完全相同的字典，但各元素插入顺序不同：
 
+```
+>>> a = {'smtp': 21, 'dict': 2628', 'svn': 3690, 'ircd': 6667, 'zope': 9673}
+
+>>> b = {'ircd': 6667, 'zope': 9673, 'smpt':21, 'dict': 2628, 'svn': 3690}
+
+```
+
+字典a, b对应的hash table如下图：
+
+![image](/img/in-post/python-dict-hash-table2.png)
+![image](/img/in-post/python-dict-hash-table3.png)
+
+字典a, b的key的输出顺序如下：
+
+```
+>>> a.keys()
+['svn', 'dict', 'zope', 'smpt', 'ircd']
+>>> b.keys()
+['ircd', 'zope', 'smpt', 'svn', 'dict']
+```
+
+
+* 插入操作可能会使字典重排序，因此在迭代时不允许向字典插入元素。
 例如：
 
 ```
 >>> d={'a':1,'b':2,'c':3}
 >>> for key in d:
->>>		print key
 >>>  	d['d'] = 4
 RuntimeError: dictionary changed size during iteration
 ```
@@ -127,7 +148,7 @@ hash('z') & 7 = 3  －－ 'z'存储在下标3中，与'b'发生冲突
 	* 当键值对总数 < 50k时，size x 4
 	* 当键值对综述 > 50k时，size x 2
 	
-  当然在把旧hash table中的内容搬移到新hash table中时，由hashcode计算数组下标的策略也要有所改变
+  当然，在把旧hash table中的内容搬移到新hash table中时，由hashcode计算数组下标的策略也要有所改变
   
 * 由于字典总是在2 / 3满时就进行resize以避免冲突，可见字典的战略是```用空间换时间```，如果想节省空间，可以选择用元组。
 
