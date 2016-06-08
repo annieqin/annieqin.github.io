@@ -3,7 +3,7 @@ layout: post
 title: 'Hash Table (Dict Implementation in Python)'
 description:
 category:
-tags: [python]
+tags: [python, 数据结构]
 ---
 
 Python中字典的内部实现是Hash Table
