@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Hash Table (Dict Implementation in Python)'
+title: 'Hash Table (Dictionary Implementation in Python)'
 description:
 category:
 tags: [python, 数据结构]
