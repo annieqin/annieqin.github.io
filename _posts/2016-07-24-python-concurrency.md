@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Python并发－－Event Loop/Coroutine'
+title: 'Python并发－－Event Loop & Coroutine'
 description:
 category:
 tags: [python, concurrency]
@@ -67,7 +67,7 @@ fib(37) = 24157817
 ```
 如上可见，由于是单线程，"读取并处理输入"事件阻塞了"打印Hello  World"事件。
 
-##  Event  Loop with Callbacks
+## Event Loop with Callbacks
 对于每一个事件类型，都注册一个回调函数。
 
 ![image](/img/in-post/concurrent2.png)
@@ -158,17 +158,16 @@ IOLoop使用的就是多路复用IO机制，好多项目中都有这一块的封
 
 Tornado的ioloop也是类似的，记录了一个个文件描述符和handler的pair，每当有io事件发生，就会调用该文件描述符对应的handler。
 
+# Coroutine
 
-## Event  Loop with Coroutines
-
-### 生成器
+## 生成器
 python有yield这个关键字，yield能把一个函数变成一个generator
 
 每当生成器函数碰到yield关键字时就会暂停，与return不同，yield在函数中返回值时会保存函数的状态，使下一次调用函数时会从上一次的状态继续执行，即从yield的下一条语句开始执行
 
 这样做有许多好处，比如我们想要生成一个数列，若该数列的存储空间太大，而我们仅仅需要访问前面几个元素，那么yield就派上用场了，它实现了这种一边循环一边计算的机制，节省了存储空间，提高了运行效率
 
-#### 生成器用处
+### 生成器用处
 1#  生成器函数常用于为for循环产生数据
 
 ```
@@ -227,7 +226,7 @@ scheduler(tasks)
 ...
 ```
 
-### 协程
+## Event Loop with Coroutine
 
 协程是一个能在返回的同时记录下返回时的状态（如：局部变量，下一条指令的地址）的函数。
 
@@ -289,6 +288,7 @@ fib(28) = 317811
 1412727841 - Hello world!
 1412727844 - Hello world!
 ```
+
 我们需要一个 event loop 来处理协程。与使用回调函数不同的是，在这里，我们需要调度协程来响应IO。即，我们可以用 event loop 维护一个任务队列，每当有输入时，都有一个协程函数需要被执行。对每一个任务，都有一个 stack 变量来跟踪协程栈来一个个执行。
 
 
